@@ -6,7 +6,6 @@ from app.core.database import get_db
 from app.core.security import SECRET_KEY, ALGORITHM
 from app.models.user import User
 
-# Використовуємо HTTPBearer замість OAuth2PasswordBearer
 security_scheme = HTTPBearer()
 
 def get_current_user(

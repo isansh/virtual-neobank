@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordRequestForm  # <--- Додаємо імпорт
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.user import User
@@ -8,7 +8,7 @@ from app.core.security import hash_password, verify_password, create_access_toke
 
 router = APIRouter(prefix="/api/auth", tags=["Auth"])
 
-# 1. Реєстрація (залишається без змін)
+# 1. Реєстрація
 @router.post("/register", response_model=UserOut, status_code=status.HTTP_201_CREATED)
 def register_user(user_data: UserCreate, db: Session = Depends(get_db)):
     existing_user = db.query(User).filter(User.email == user_data.email).first()

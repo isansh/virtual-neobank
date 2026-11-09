@@ -7,12 +7,12 @@ from app.routers.deps import get_current_user
 
 router = APIRouter(prefix="/api/users", tags=["Users"])
 
-# 3. Отримання профілю поточного користувача
+# Отримання профілю поточного користувача
 @router.get("/me", response_model=UserOut)
 def get_my_profile(current_user: User = Depends(get_current_user)):
     return current_user
 
-# 4. Оновлення даних профілю / KYC
+# Оновлення даних профілю / KYC
 @router.put("/me", response_model=UserOut)
 def update_my_profile(
     user_update: UserUpdate,
