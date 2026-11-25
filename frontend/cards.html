@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoBank — Мої картки</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="cards.html" class="logo">💳 NeoBank</a>
+            <nav class="nav-links">
+                <a href="cards.html" class="nav-link active">Мої картки</a>
+                <a href="transactions.html" class="nav-link">Перекази та історія</a>
+                <a href="profile.html" class="nav-link">Профіль та KYC</a>
+            </nav>
+            <button class="btn btn-outline" onclick="logout()">Вийти</button>
+        </header>
+
+        <div id="alert-box" class="alert hidden"></div>
+
+        <div class="card">
+            <h2>Модуль Карт та Рахунків (Людина 2)</h2>
+            <p class="muted">Тут буде список віртуальних карт, створення нової картки, зміна лімітів та блокування.</p>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script>requireAuth();</script>
+    <!-- Людина 2 підключить сюди свій <script src="js/cards.js"></script> -->
+</body>
+</html>

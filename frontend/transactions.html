@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoBank — Перекази та історія</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="cards.html" class="logo">💳 NeoBank</a>
+            <nav class="nav-links">
+                <a href="cards.html" class="nav-link">Мої картки</a>
+                <a href="transactions.html" class="nav-link active">Перекази та історія</a>
+                <a href="profile.html" class="nav-link">Профіль та KYC</a>
+            </nav>
+            <button class="btn btn-outline" onclick="logout()">Вийти</button>
+        </header>
+
+        <div id="alert-box" class="alert hidden"></div>
+
+        <div class="card">
+            <h2>Модуль Транзакцій та Переказів (Людина 3)</h2>
+            <p class="muted">Тут буде форма переказу коштів з картки на картку та таблиця з історією операцій.</p>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script>requireAuth();</script>
+    <!-- Людина 3 підключить сюди свій <script src="js/transactions.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoBank — Профіль та KYC</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="cards.html" class="logo">💳 NeoBank</a>
+            <nav class="nav-links">
+                <a href="cards.html" class="nav-link">Мої картки</a>
+                <a href="transactions.html" class="nav-link">Перекази та історія</a>
+                <a href="profile.html" class="nav-link active">Профіль та KYC</a>
+            </nav>
+            <button class="btn btn-outline" onclick="logout()">Вийти</button>
+        </header>
+
+        <div id="alert-box" class="alert hidden"></div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Профіль та KYC-верифікація</h2>
+                    <span id="kyc-badge" class="badge pending">Очікує перевірки</span>
+                </div>
+                <form id="profile-form" onsubmit="handleUpdateProfile(event)">
+                    <div class="form-group">
+                        <label>Email (логін)</label>
+                        <input type="email" id="prof-email" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>ПІБ</label>
+                        <input type="text" id="prof-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Телефон</label>
+                        <input type="text" id="prof-phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Номер паспорта / ID-картки</label>
+                        <input type="text" id="prof-passport" placeholder="001234567">
+                    </div>
+                    <div class="form-group">
+                        <label>ІПН (РНОКПП)</label>
+                        <input type="text" id="prof-tax" placeholder="1234567890">
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">Зберегти та пройти KYC</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Безпека акаунту</h2>
+                <form id="password-form" onsubmit="handleChangePassword(event)">
+                    <div class="form-group">
+                        <label>Поточний пароль</label>
+                        <input type="password" id="old-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Новий пароль</label>
+                        <input type="password" id="new-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary full-width">Змінити пароль</button>
+                </form>
+
+                <hr class="divider">
+
+                <div class="danger-zone">
+                    <h3>Блокування акаунту</h3>
+                    <p class="muted">Якщо ви підозрюєте злам, ви можете миттєво заблокувати доступ до профілю.</p>
+                    <button class="btn btn-danger full-width" onclick="handleDeactivate()">Заблокувати акаунт</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

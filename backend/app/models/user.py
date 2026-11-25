@@ -12,6 +12,22 @@ class User(Base):
     hashed_password = Column(String, nullable=False)
     full_name = Column(String, nullable=False)
     phone_number = Column(String, nullable=True)
-    kyc_status = Column(String, default="pending")  # pending, verified, rejected
+    
+    # Роль: 'client' або 'admin'
+    role = Column(String, default="client", nullable=False)
+    
+    # KYC дані
+    passport_number = Column(String, nullable=True)
+    tax_id = Column(String, nullable=True)
+    kyc_status = Column(String, default="pending")
+    
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class TokenBlacklist(Base):
+    __tablename__ = "token_blacklist"
+
+    id = Column(Integer, primary_key=True, index=True)
+    token = Column(String, unique=True, index=True, nullable=False)
+    blacklisted_at = Column(DateTime, default=datetime.utcnow)

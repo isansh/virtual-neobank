@@ -1,4 +1,4 @@
-# virtual-neobank
+![[attachments/Pasted image 20261125124604.png]]![[attachments/Pasted image 20261125124604.png]]# virtual-neobank
 Модель User
 - `id` (INTEGER / UUID) — унікальний ідентифікатор
     
@@ -53,6 +53,9 @@ cd backend
  python -m venv venv
  venv\Scripts\activate
  pip install -r requirements.txt
- 
+ ![[attachments/Pasted image 20261125124604.png]]
 запуск свагера
 uvicorn app.main:app --reload
+
+![[photo_2026-11-25_12-47-29.jpg]]
+![[2.jpg]]
